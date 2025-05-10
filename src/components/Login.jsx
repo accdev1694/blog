@@ -6,7 +6,7 @@ import Heading from "./Heading";
 const Login = ({isAuth, setIsAuth}) => {
     const navigate = useNavigate()
     const signIn = () => {
-        signInWithPopup(auth, provider).then((res)=>{
+        signInWithPopup(auth, provider).then(()=>{
             localStorage.setItem(isAuth, true)
             setIsAuth(true)
         }).catch(err=>{
@@ -18,7 +18,7 @@ const Login = ({isAuth, setIsAuth}) => {
   return (
     <>
       <Heading title="Sign In with Google"/>
-      <button onClick={signIn} className="border py-2 px-6 mt-4 font-bold bg-accent text-secondary cursor-pointer opacity-80 hover:opacity-100 transition  duration-300 ease-in-out">
+      <button onClick={signIn} className="border py-2 px-6 mt-4 font-bold bg-accent text-secondary cursor-pointer opacity-90 hover:opacity-100 transition  duration-300 ease-in-out">
         Register Here
       </button>
     </>

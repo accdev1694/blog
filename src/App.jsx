@@ -11,7 +11,7 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   const currentLocation = useLocation();
   const logOut = () => {
-    signOut(auth).then((res) => {
+    signOut(auth).then(() => {
       localStorage.clear();
       setIsAuth(false);
       window.location.pathname = "/login";
@@ -51,7 +51,7 @@ function App() {
                 <Link className="font-semibold text-center text-accent text-sm  py-1 border opacity-80 hover:opacity-100 transition  duration-300 ease-in-out  cursor-pointer w-26" to="/write">Write</Link>
                   <button
                     onClick={logOut}
-                    className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-80 hover:opacity-100 transition  duration-300 ease-in-out bg-accent  cursor-pointer w-26"
+                    className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-90 hover:opacity-100 transition  duration-300 ease-in-out bg-accent  cursor-pointer w-26"
                   >
                     Log Out
                   </button>

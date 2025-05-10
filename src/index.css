@@ -9,12 +9,10 @@
     --color-bg: #d7d7d7;
     --font-primary: Ubuntu, sans-serif;
     --font-secondary: Montserrat, sans-serif;
-    
-    
   }
 }
 
-*{
+* {
   /* outline: 1px solid; */
 }
 
@@ -42,5 +40,10 @@
   }
   .border-primary {
     border: 3px solid var(--color-primary);
+  }
+  .outline-accent {
+    outline-color: var(--color-accent);
+    outline-style: solid;
+    outline-width: 2px;
   }
 }
