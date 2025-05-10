@@ -3,15 +3,19 @@
 
 @layer base {
   :root {
-    --color-primary: #424242;
+    --color-primary: #2c2c2c;
     --color-secondary: #e8e8e8;
     --color-accent: #417690;
     --color-bg: #d7d7d7;
     --font-primary: Ubuntu, sans-serif;
     --font-secondary: Montserrat, sans-serif;
-    --font-smallest: 
+    
     
   }
+}
+
+*{
+  /* outline: 1px solid; */
 }
 
 @layer utilities {
