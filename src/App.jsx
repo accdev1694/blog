@@ -5,17 +5,17 @@ import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase_config";
+import Write from "./components/Write";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   const currentLocation = useLocation();
   const logOut = () => {
-    signOut(auth).then(res=>{
-      localStorage.clear()
-      setIsAuth(false)
-      window.location.pathname = "/login"
-    })
-    
+    signOut(auth).then((res) => {
+      localStorage.clear();
+      setIsAuth(false);
+      window.location.pathname = "/login";
+    });
   };
 
   return (
@@ -47,30 +47,31 @@ function App() {
               </Link>
             ) : (
               isAuth && (
-                <div className="flex gap-4">
-                  <Link
-                    className="font-bold text-accent text-center text-sm border py-1 w-26 cursor-pointer opacity-80 hover:opacity-100 duration-300 ease-in-out"
-                    to="/create"
-                  >
-                    Create Post
-                  </Link>
+                <>
+                <Link className="font-semibold text-center text-accent text-sm  py-1 border opacity-80 hover:opacity-100 transition  duration-300 ease-in-out  cursor-pointer w-26" to="/write">Write</Link>
                   <button
                     onClick={logOut}
                     className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-80 hover:opacity-100 transition  duration-300 ease-in-out bg-accent  cursor-pointer w-26"
                   >
                     Log Out
                   </button>
-                </div>
+                  
+                </>
               )
             )}
           </div>
         </div>
 
-        <Routes>
-          <Route path="/" element={<Homepage />}></Route>
-          <Route path="/login" element={<Login isAuth={isAuth} setIsAuth={setIsAuth}/>}></Route>
-          <Route path="/create"></Route>
-        </Routes>
+        <div className="mx-36 pt-8 align-left mt-24 border-t">
+          <Routes>
+            <Route path="/" element={<Homepage />}></Route>
+            <Route
+              path="/login"
+              element={<Login isAuth={isAuth} setIsAuth={setIsAuth} />}
+            ></Route>
+            <Route path="/write" element={<Write />}></Route>
+          </Routes>
+        </div>
       </div>
     </>
   );
