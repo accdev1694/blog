@@ -4,7 +4,7 @@ import { Link, Routes, Route, useLocation } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import { signOut } from "firebase/auth";
-import { auth } from "../firebase_config";
+import { auth } from "../firebase-config";
 import Write from "./components/Write";
 
 function App() {
@@ -48,14 +48,18 @@ function App() {
             ) : (
               isAuth && (
                 <>
-                <Link className="font-semibold text-center text-accent text-sm  py-1 border opacity-80 hover:opacity-100 transition  duration-300 ease-in-out  cursor-pointer w-26" to="/write">Write</Link>
+                  <Link
+                    className="font-semibold text-center text-accent text-sm  py-1 border opacity-80 hover:opacity-100 transition  duration-300 ease-in-out  cursor-pointer w-26"
+                    to="/write"
+                  >
+                    Write
+                  </Link>
                   <button
                     onClick={logOut}
                     className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-90 hover:opacity-100 transition  duration-300 ease-in-out bg-accent  cursor-pointer w-26"
                   >
                     Log Out
                   </button>
-                  
                 </>
               )
             )}
@@ -64,12 +68,12 @@ function App() {
 
         <div className="mx-36 pt-8 align-left mt-24 border-t">
           <Routes>
-            <Route path="/" element={<Homepage />}></Route>
+            <Route path="/" element={<Homepage isAuth={isAuth}/>}></Route>
             <Route
               path="/login"
               element={<Login isAuth={isAuth} setIsAuth={setIsAuth} />}
             ></Route>
-            <Route path="/write" element={<Write isAuth={isAuth}/>}></Route>
+            <Route path="/write" element={<Write isAuth={isAuth} />}></Route>
           </Routes>
         </div>
       </div>

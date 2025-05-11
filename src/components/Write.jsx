@@ -3,18 +3,20 @@ import Heading from "./Heading";
 import { addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { collection } from "firebase/firestore";
-import { db, auth } from "../../firebase_config";
+import { db, auth } from "../../firebase-config";
+import Time from "./Time";
 
-
-const Write = ({isAuth}) => {
+const Write = ({ isAuth }) => {
   let navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const collectionsRef = collection(db, "blog")
+  const collectionsRef = collection(db, "blog");
 
   const submitPost = async (e) => {
     e.preventDefault();
-    console.log(e);
+    
+    
+
     try {
       await addDoc(collectionsRef, {
         title,
@@ -23,26 +25,25 @@ const Write = ({isAuth}) => {
           name: auth.currentUser.displayName,
           id: auth.currentUser.uid,
         },
-        createdAt: new Date().toISOString(),
+        createdAt: <Time />,
       });
-      console.log('successfully saved');
-      
+      console.log("successfully saved");
+
       navigate("/");
     } catch (error) {
       console.error("Error occured: ", error);
     }
   };
-  
-  useEffect(()=>{
-    if(!isAuth){
-      navigate("/login")
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/login");
     }
-  },[isAuth, navigate])
+  }, [isAuth, navigate]);
   return (
     <div className="">
       <Heading title="Create a Post" />
       <form
-        
         className="mx-36 flex items-center flex-col gap-8 mt-8"
         onSubmit={submitPost}
       >
@@ -52,7 +53,7 @@ const Write = ({isAuth}) => {
             Title:
           </label>
           <input
-            className="flex items-center p-2 bg-blue-100/20 placeholder:text-blue-600/20 border border-blue-500/50 focus:outline-none focus:bg-blue-900/10"
+            className="flex items-center p-2 bg-blue-100/20 placeholder:text-blue-600/30 border border-blue-500/50 focus:outline-none focus:bg-blue-900/10"
             type="text"
             id="title"
             placeholder="Ai in Everything"
@@ -68,7 +69,7 @@ const Write = ({isAuth}) => {
             Content:
           </label>
           <textarea
-            className="h-50 p-2 bg-blue-100/20 placeholder:text-blue-600/20 border border-blue-500/50 focus:outline-none focus:bg-blue-900/10"
+            className="h-50 p-2 bg-blue-100/20 placeholder:text-blue-600/30 border border-blue-500/50 focus:outline-none focus:bg-blue-900/10"
             type="text"
             id="content"
             placeholder="Is Ai really taking our jobs? In my opinion . . ."
