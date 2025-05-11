@@ -7,13 +7,14 @@ const Login = ({isAuth, setIsAuth}) => {
     const navigate = useNavigate()
     const signIn = () => {
         signInWithPopup(auth, provider).then(()=>{
-            localStorage.setItem(isAuth, true)
+            localStorage.setItem("isAuth", true)
             setIsAuth(true)
+            navigate("/")
         }).catch(err=>{
           console.error(err)
           navigate("/login")
         })
-        navigate("/")
+        
     }
   return (
     <>

@@ -69,7 +69,7 @@ function App() {
               path="/login"
               element={<Login isAuth={isAuth} setIsAuth={setIsAuth} />}
             ></Route>
-            <Route path="/write" element={<Write />}></Route>
+            <Route path="/write" element={<Write isAuth={isAuth}/>}></Route>
           </Routes>
         </div>
       </div>
