@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import Heading from "./Heading";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
-import { db } from "../../firebase-config";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { auth, db } from "../../firebase-config";
+// import { useNavigate } from "react-router-dom";
 
 const Homepage = ({ isAuth }) => {
   const [posts, setPosts] = useState([]);
   const collectionsRef = collection(db, "blog");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   
   useEffect(() => {
@@ -44,7 +44,7 @@ const Homepage = ({ isAuth }) => {
                 </p>
               </div>
 
-              {isAuth && (
+              {isAuth && post.author.id === auth.currentUser.uid && (
                 <button onClick={()=>deletePost(post.id)} className="mt-4 text-accent border px-6 w-fit font-bold cursor-pointer opacity-[90%] hover:opacity-[100%] hover:rounded-sm">
                   Delete
                 </button>
