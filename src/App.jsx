@@ -66,7 +66,7 @@ function App() {
           </div>
         </div>
 
-        <div className="mx-36 pt-8 align-left mt-24 border-t">
+        <div className="mx-36 pt-8 align-left mt-20 pb-8">
           <Routes>
             <Route path="/" element={<Homepage isAuth={isAuth}/>}></Route>
             <Route

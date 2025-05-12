@@ -4,18 +4,26 @@ import { addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { collection } from "firebase/firestore";
 import { db, auth } from "../../firebase-config";
-import Time from "./Time";
 
 const Write = ({ isAuth }) => {
   let navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
   const collectionsRef = collection(db, "blog");
 
   const submitPost = async (e) => {
     e.preventDefault();
-    
-    
+    const date = new Date().toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+      timeZone: "Europe/London",
+    });
 
     try {
       await addDoc(collectionsRef, {
@@ -25,7 +33,7 @@ const Write = ({ isAuth }) => {
           name: auth.currentUser.displayName,
           id: auth.currentUser.uid,
         },
-        createdAt: <Time />,
+        createdAt: date,
       });
       console.log("successfully saved");
 
