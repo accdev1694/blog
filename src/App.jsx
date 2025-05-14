@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase-config";
 import Write from "./components/Write";
+import BlogDetails from "./components/BlogDetails";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -74,6 +75,7 @@ function App() {
               element={<Login isAuth={isAuth} setIsAuth={setIsAuth} />}
             ></Route>
             <Route path="/write" element={<Write isAuth={isAuth} />}></Route>
+            <Route path="/blog-details/:id" element={<BlogDetails />}></Route>
           </Routes>
         </div>
       </div>

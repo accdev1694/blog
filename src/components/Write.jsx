@@ -29,6 +29,7 @@ const Write = ({ isAuth }) => {
       await addDoc(collectionsRef, {
         title,
         content,
+        preview: content.slice(0, 100) + '...',
         author: {
           name: auth.currentUser.displayName,
           id: auth.currentUser.uid,
@@ -50,7 +51,7 @@ const Write = ({ isAuth }) => {
   }, [isAuth, navigate]);
   return (
     <div className="">
-      <Heading title="Create a Post" />
+      <Heading heading="Create a Post" />
       <form
         className="mx-36 flex items-center flex-col gap-8 mt-8"
         onSubmit={submitPost}
