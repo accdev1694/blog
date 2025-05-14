@@ -1,8 +1,16 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase-config";
-const BlogList = ({posts, isAuth}) => {
+import { db } from "../../firebase-config";
+import { deleteDoc, doc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
+const BlogList = ({ posts, isAuth }) => {
+  const navigate = useNavigate();
+  const deletePost = async (id) => {
+    const postDoc = doc(db, "blog", id);
+    await deleteDoc(postDoc);
+    navigate("/");
+  };
   return (
     <div className="grid grid-cols-2 gap-12 mt-10 ">
       {posts.map((post) => (
@@ -30,7 +38,7 @@ const BlogList = ({posts, isAuth}) => {
             {/* Post Delete Button */}
             {isAuth && post.author.id === auth.currentUser.uid && (
               <button
-                // onClick={() => deletePost(post.id)}
+                onClick={() => deletePost(post.id)}
                 className="mt-4 text-accent border px-6 w-fit font-bold cursor-pointer opacity-[90%] hover:opacity-[100%] hover:rounded-sm"
               >
                 Delete

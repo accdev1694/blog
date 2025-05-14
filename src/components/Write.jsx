@@ -4,11 +4,13 @@ import { addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { collection } from "firebase/firestore";
 import { db, auth } from "../../firebase-config";
+import MDEditor from "@uiw/react-md-editor";
+import rehypeSanitize from "rehype-sanitize";
 
 const Write = ({ isAuth }) => {
   let navigate = useNavigate();
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState("**Hello world!!!**");
 
   const collectionsRef = collection(db, "blog");
 
@@ -29,18 +31,16 @@ const Write = ({ isAuth }) => {
       await addDoc(collectionsRef, {
         title,
         content,
-        preview: content.slice(0, 100) + '...',
+        preview: content.replace(/[#*`]/g, "").slice(0, 100) + "...", // Strip markdown for preview
         author: {
           name: auth.currentUser.displayName,
           id: auth.currentUser.uid,
         },
         createdAt: date,
       });
-      console.log("successfully saved");
-
       navigate("/");
     } catch (error) {
-      console.error("Error occured: ", error);
+      console.error("Error occurred: ", error);
     }
   };
 
@@ -50,7 +50,7 @@ const Write = ({ isAuth }) => {
     }
   }, [isAuth, navigate]);
   return (
-    <div className="">
+    <div className="min-h-screen bg-white">
       <Heading heading="Create a Post" />
       <form
         className="mx-36 flex items-center flex-col gap-8 mt-8"
@@ -72,22 +72,24 @@ const Write = ({ isAuth }) => {
             required
           />
         </div>
-        {/* Post content */}
+
+        {/* Markdown Editor */}
         <div className="w-full gap-2 flex flex-col">
-          <label className="  font-bold" htmlFor="content">
-            Content:
-          </label>
-          <textarea
-            className="h-50 p-2 bg-blue-100/20 placeholder:text-blue-600/30 border border-blue-500/50 focus:outline-none focus:bg-blue-900/10"
-            type="text"
-            id="content"
-            placeholder="Is Ai really taking our jobs? In my opinion . . ."
-            name="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-          ></textarea>
+          <label className="font-bold">Content:</label>
+          <div className="min-h-[500px] w-full">
+            <MDEditor
+              value={content}
+            onChange={setContent}
+            previewOptions={{
+              rehypePlugins: [[rehypeSanitize]],
+            }}
+            height={500}
+            preview="live"
+              className="w-full"
+            />
+          </div>
         </div>
+
         <button
           type="submit"
           className="opacity-90 hover:opacity-100 transition duration-300 ease-in-out bg-accent py-3 w-full text-secondary font-bold"

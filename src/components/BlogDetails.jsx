@@ -1,15 +1,15 @@
-import BlogList from "./BlogList";
-import Heading from "./Heading"
+import Heading from "./Heading";
 import { useParams } from "react-router-dom";
-import {usePromise} from "./usePromise";
+import { usePromise } from "./usePromise";
+import MDEditor from "@uiw/react-md-editor";
 
 const BlogDetails = () => {
-const {posts, loading, error} = usePromise();
-const { id } = useParams();
+  const { posts, loading, error } = usePromise();
+  const { id } = useParams();
 
- // Debug logs
-  console.log('Current ID:', id);
-  console.log('Posts array:', posts);
+  // Debug logs
+  console.log("Current ID:", id);
+  console.log("Posts array:", posts);
 
   // Handle loading and error states with proper returns
   if (loading) {
@@ -27,20 +27,15 @@ const { id } = useParams();
     return <div className="text-center py-4">Post Not Found</div>;
   }
 
-
-  
   return (
-    <div className="">
-       
-      {/* <BlogList /> */}
+    <div className="max-w-4xl mx-auto py-8">
       <Heading heading={post.title} />
-      <p className="mt-4 mx-4">
-        {post.content}
-      </p>
-      <div className="flex justify-between items-center mt-4 mx-4 w-full">
-        <p className="font-bold text-accent">🤖 @{post.author.name}</p>
-        <p className="font-bold text-accent">⏳ {post.createdAt}</p>
-        
+      <div className="mt-8">
+        <MDEditor.Markdown source={post.content} />
+      </div>
+      <div className="flex justify-between items-center mt-6 p-4 text-sm bg-gray-300">
+        <p className="">🤖 @{post.author.name}</p>
+        <p>⏳ {post.createdAt}</p>
       </div>
     </div>
   );

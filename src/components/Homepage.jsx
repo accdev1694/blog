@@ -5,21 +5,18 @@ import {usePromise} from "./usePromise";
 
 const Homepage = ({isAuth}) => {
   const {posts, loading, error} = usePromise();
-  loading && <p>Loading...</p>;
-  error && <p>{error}</p>;
-  // console.log(posts);
+  if (loading) {
+    return <div className="text-center py-4">Loading...</div>;
+  }
+  if (error) {
+    return <div className="text-center py-4 text-red-500">{error}</div>;
+  }
+  
   
   
     
   
-  // const navigate = useNavigate();
 
-  
-
-  // const deletePost = async (id) => {
-  //   const postDoc = doc(db, "blog", id);
-  //   await deleteDoc(postDoc);
-  // };
   return (
     <>      
       <Heading heading="Blog Home" />
