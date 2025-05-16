@@ -76,7 +76,7 @@ const Write = ({ isAuth }) => {
         {/* Markdown Editor */}
         <div className="w-full gap-2 flex flex-col">
           <label className="font-bold">Content:</label>
-          <div className="min-h-[500px] w-full">
+          <div className="min-h-[500px] w-full ">
             <MDEditor
               value={content}
             onChange={setContent}
@@ -85,14 +85,14 @@ const Write = ({ isAuth }) => {
             }}
             height={500}
             preview="live"
-              className="w-full"
+              className="w-full bg-blue-100/20 placeholder:text-blue-600/30 border border-blue-500/50 focus:outline-none focus:bg-blue-900/10"
             />
           </div>
         </div>
 
         <button
           type="submit"
-          className="opacity-90 hover:opacity-100 transition duration-300 ease-in-out bg-accent py-3 w-full text-secondary font-bold"
+          className="opacity-90 hover:opacity-100 transition duration-300 ease-in-out btn-bg-accent py-3 w-full text-secondary font-bold"
         >
           SUBMIT POST
         </button>

@@ -24,7 +24,7 @@ function App() {
       {/* Main Page Container */}
       <div className="h-screen px-36 font-secondary pt-4">
         {/* Nav Container */}
-        <div className="flex justify-between align-center">
+        <nav className="flex justify-between align-center">
           <Link
             className="tracking-tighter font-extrabold text-accent text-3xl font-primary"
             to="/"
@@ -42,7 +42,7 @@ function App() {
             {!isAuth && currentLocation.pathname !== "/login" ? (
               <Link
                 to="/login"
-                className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-80 hover:opacity-100 transition  duration-300 ease-in-out bg-accent  cursor-pointer w-26"
+                className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-80 hover:opacity-100 transition  duration-300 ease-in-out btn-bg-accent  cursor-pointer w-26"
               >
                 Log In
               </Link>
@@ -57,7 +57,7 @@ function App() {
                   </Link>
                   <button
                     onClick={logOut}
-                    className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-90 hover:opacity-100 transition  duration-300 ease-in-out bg-accent  cursor-pointer w-26"
+                    className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-90 hover:opacity-100 transition  duration-300 ease-in-out btn-bg-accent  cursor-pointer w-26"
                   >
                     Log Out
                   </button>
@@ -65,7 +65,7 @@ function App() {
               )
             )}
           </div>
-        </div>
+        </nav>
 
         <div className="mx-36 pt-8 align-left mt-20 pb-8">
           <Routes>
