@@ -28,6 +28,9 @@
   .text-accent {
     color: var(--color-accent);
   }
+  .text-accent-dark {
+    color: var(--color-accent-dark);
+  }
   .bg-custom {
     background-color: var(--color-light);
   }

@@ -15,15 +15,17 @@ const BlogList = ({ posts, isAuth }) => {
     <div className="grid grid-cols-2 gap-12 mt-10 ">
       {posts.map((post) => (
         <Link
-          className="flex flex-col bg-custom  text-left p-4 cursor-pointer opacity-80 hover:opacity-100 hover:rounded-lg transition duration-300 ease-in-out hover:bg-transparent border border-light shadow-lg"
+          className="flex flex-col text-left p-4 cursor-pointer opacity-80 hover:opacity-100 hover:rounded-lg transition duration-300 ease-in-out hover:bg-transparent border border-light shadow-lg"
           key={post.id}
           to={`blog-details/${post.id}`}
         >
-          {/* Post Title and Content */}
-          <h1 className="font-bold text-accent text-lg font-primary">
+          {/* Post Title and Description */}
+          <h1 className="font-bold text-accent-dark text-lg font-primary">
             {post.title.toUpperCase()}
           </h1>
-          {post.preview}
+          <h3 className="font-bold text-primary text-sm font-primary mt-2">
+            {post.description.length > 100 ? post.description.slice(0, 100) + "..." : post.description}
+          </h3>
 
           <div className="w-full flex justify-between mt-6 ">
             <div className="">

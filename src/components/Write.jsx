@@ -10,7 +10,9 @@ import rehypeSanitize from "rehype-sanitize";
 const Write = ({ isAuth }) => {
   let navigate = useNavigate();
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("**Hello world!!!**");
+  const [description, setDescription] = useState("")
+  const [content, setContent] = useState("**Hello world!**");
+  
 
   const collectionsRef = collection(db, "blog");
 
@@ -30,8 +32,8 @@ const Write = ({ isAuth }) => {
     try {
       await addDoc(collectionsRef, {
         title,
+        description,
         content,
-        preview: content.replace(/[#*`]/g, "").slice(0, 100) + "...", // Strip markdown for preview
         author: {
           name: auth.currentUser.displayName,
           id: auth.currentUser.uid,
@@ -69,6 +71,23 @@ const Write = ({ isAuth }) => {
             name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+        </div>
+
+        {/* Post Description */}
+        <div className="flex w-full flex-col gap-2">
+          <label className="font-bold" htmlFor="title">
+            Description:
+          </label>
+          <input
+            className="flex items-center p-2 bg-blue-100/20 placeholder:text-blue-600/30 border border-blue-500/50 focus:outline-none focus:bg-blue-900/10"
+            type="text"
+            id="description"
+            placeholder="In my view, AI is the future of everything..."
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
