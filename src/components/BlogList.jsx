@@ -9,7 +9,7 @@ const BlogList = ({ posts, isAuth }) => {
   const deletePost = async (id) => {
     const postDoc = doc(db, "blog", id);
     await deleteDoc(postDoc);
-    navigate("/");
+    navigate("/blog/");
   };
 
   
@@ -20,7 +20,7 @@ const BlogList = ({ posts, isAuth }) => {
         <Link
           className="h-60 md:h-52 flex flex-col text-left p-4 cursor-pointer opacity-80 hover:opacity-100 hover:rounded-lg transition duration-300 ease-in-out hover:bg-transparent  border-accent-light shadow-lg"
           key={post.id}
-          to={`/blog-details/${post.id}`}
+          to={`/blog/blog-details/${post.id}`}
         >
           {/* Post Title and Description */}
           <h1 className="font-bold text-accent text-md font-primary">
