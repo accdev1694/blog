@@ -55,7 +55,7 @@ const Write = ({ isAuth }) => {
     <div className="min-h-screen bg-white">
       <Heading heading="Create a Post" />
       <form
-        className="mx-36 flex items-center flex-col gap-8 mt-8"
+        className=" flex items-center flex-col gap-8 mt-8"
         onSubmit={submitPost}
       >
         {/* Post Title */}
@@ -67,6 +67,7 @@ const Write = ({ isAuth }) => {
             className="flex items-center p-2 bg-blue-100/20 placeholder:text-blue-600/30 border border-blue-500/50 focus:outline-none focus:bg-blue-900/10"
             type="text"
             id="title"
+            maxLength={70}
             placeholder="Ai in Everything"
             name="title"
             value={title}

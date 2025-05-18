@@ -12,28 +12,28 @@ const BlogList = ({ posts, isAuth }) => {
     navigate("/");
   };
   return (
-    <div className="grid grid-cols-2 gap-12 mt-10 ">
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
       {posts.map((post) => (
         <Link
-          className="flex flex-col text-left p-4 cursor-pointer opacity-80 hover:opacity-100 hover:rounded-lg transition duration-300 ease-in-out hover:bg-transparent border border-light shadow-lg"
+          className="h-60 md:h-52 flex flex-col text-left p-4 cursor-pointer opacity-80 hover:opacity-100 hover:rounded-lg transition duration-300 ease-in-out hover:bg-transparent  border-accent-light shadow-lg"
           key={post.id}
           to={`blog-details/${post.id}`}
         >
           {/* Post Title and Description */}
-          <h1 className="font-bold text-accent-dark text-lg font-primary">
+          <h1 className="font-bold text-accent text-md font-primary">
             {post.title.toUpperCase()}
           </h1>
-          <h3 className="font-bold text-primary text-sm font-primary mt-2">
+          <h3 className="text-primary text-xs font-primary mt-2 flex-1">
             {post.description.length > 100 ? post.description.slice(0, 100) + "..." : post.description}
           </h3>
 
-          <div className="w-full flex justify-between mt-6 ">
+          <div className="w-full flex justify-between ">
             <div className="">
               {/* Post Author and Date */}
-              <p className="w-full text-left text-xs mt-2">
+              <p className="w-full text-left text-[10px] mt-2">
                 🤖 @{post.author.name}
               </p>
-              <p className="w-full text-left text-xs font-bold">
+              <p className="w-full text-left text-[10px] font-bold">
                 ⏳ {post.createdAt}
               </p>
             </div>
@@ -41,7 +41,7 @@ const BlogList = ({ posts, isAuth }) => {
             {isAuth && post.author.id === auth.currentUser.uid && (
               <button
                 onClick={() => deletePost(post.id)}
-                className="mt-4 text-accent border px-6 w-fit font-bold cursor-pointer opacity-[90%] hover:opacity-[100%] hover:rounded-sm"
+                className="mt-4 text-accent border px-6 w-fit font-bold cursor-pointer opacity-[90%] hover:opacity-[100%] hover:rounded-sm text-xs"
               >
                 Delete
               </button>

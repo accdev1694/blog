@@ -15,18 +15,18 @@ function App() {
     signOut(auth).then(() => {
       localStorage.clear();
       setIsAuth(false);
-      window.location.pathname = "/login";
+      window.location.pathname = "/blog/login";
     });
   };
 
   return (
     <>
       {/* Main Page Container */}
-      <div className="h-screen px-36 font-secondary pt-4">
+      <div className="h-screen px-[10%]  font-secondary pt-4">
         {/* Nav Container */}
-        <nav className="flex justify-between align-center">
+        <nav className="flex justify-between align-center border-bottom-accent pb-4">
           <Link
-            className="tracking-tighter font-extrabold text-accent text-3xl font-primary"
+            className="tracking-tighter font-extrabold text-accent text-lg md:text-3xl font-primary"
             to="/"
           >
             Accdev Blog
@@ -35,14 +35,14 @@ function App() {
           <div className="flex justify-center items-center gap-2">
             <Link
               to="/"
-              className="px-1 tracking-wide text-primary font-medium font-primary opacity-80 hover:opacity-100 duration-300 ease-in-out"
+              className="text-xs md:text-smpx-1 tracking-wide text-primary font-medium font-primary opacity-80 hover:opacity-100 duration-300 ease-in-out"
             >
               Home
             </Link>
             {!isAuth && currentLocation.pathname !== "/login" ? (
               <Link
                 to="/login"
-                className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-80 hover:opacity-100 transition  duration-300 ease-in-out btn-bg-accent  cursor-pointer w-26"
+                className="font-semibold text-center text-secondary text-xs md:text-sm  py-1 border border-transparent opacity-80 hover:opacity-100 transition  duration-300 ease-in-out btn-bg-accent  cursor-pointer w-14 md:w-26"
               >
                 Log In
               </Link>
@@ -50,14 +50,14 @@ function App() {
               isAuth && (
                 <>
                   <Link
-                    className="font-semibold text-center text-accent text-sm  py-1 border opacity-80 hover:opacity-100 transition  duration-300 ease-in-out  cursor-pointer w-26"
+                    className="font-semibold text-center text-accent text-xs md:text-sm  py-1 border opacity-80 hover:opacity-100 transition  duration-300 ease-in-out  cursor-pointer w-14 md:w-26 "
                     to="/write"
                   >
                     Write
                   </Link>
                   <button
                     onClick={logOut}
-                    className="font-semibold text-center text-secondary text-sm  py-1 border border-transparent opacity-90 hover:opacity-100 transition  duration-300 ease-in-out btn-bg-accent  cursor-pointer w-26"
+                    className="font-semibold text-center text-secondary text-xs md:text-sm  py-1 border border-transparent opacity-90 hover:opacity-100 transition  duration-300 ease-in-out btn-bg-accent  cursor-pointer w-16 md:w-26"
                   >
                     Log Out
                   </button>
@@ -67,7 +67,7 @@ function App() {
           </div>
         </nav>
 
-        <div className="mx-36 pt-8 align-left mt-20 pb-8">
+        <div className="pt-8 align-left md:mt-12 pb-8">
           <Routes>
             <Route path="/" element={<Homepage isAuth={isAuth}/>}></Route>
             <Route

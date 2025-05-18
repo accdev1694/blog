@@ -14,7 +14,7 @@ const Login = ({ setIsAuth }) => {
       })
       .catch((err) => {
         console.error(err);
-        navigate("/login");
+        navigate("/blog/login");
       });
   };
   return (
