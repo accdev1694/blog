@@ -40,7 +40,7 @@ const Write = ({ isAuth }) => {
         },
         createdAt: date,
       });
-      navigate("/blog/");
+      navigate("/");
     } catch (error) {
       console.error("Error occurred: ", error);
     }
@@ -48,7 +48,7 @@ const Write = ({ isAuth }) => {
 
   useEffect(() => {
     if (!isAuth) {
-      navigate("/blog/login");
+      navigate("/login");
     }
   }, [isAuth, navigate]);
   return (

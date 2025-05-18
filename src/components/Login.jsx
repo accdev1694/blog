@@ -10,11 +10,11 @@ const Login = ({ setIsAuth }) => {
       .then(() => {
         localStorage.setItem("isAuth", true);
         setIsAuth(true);
-        navigate("/blog/");
+        navigate("/");
       })
       .catch((err) => {
         console.error(err);
-        navigate("/blog/login");
+        navigate("/login");
       });
   };
   return (
