@@ -11,6 +11,9 @@ const BlogList = ({ posts, isAuth }) => {
     await deleteDoc(postDoc);
     navigate("/");
   };
+
+  
+
   return (
     <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
       {posts.map((post) => (
@@ -24,7 +27,9 @@ const BlogList = ({ posts, isAuth }) => {
             {post.title.toUpperCase()}
           </h1>
           <h3 className="text-primary text-xs font-primary mt-2 flex-1">
-            {post.description.length > 100 ? post.description.slice(0, 100) + "..." : post.description}
+            {post.description.length > 100
+              ? post.description.slice(0, 100) + "..."
+              : post.description}
           </h3>
 
           <div className="w-full flex justify-between ">

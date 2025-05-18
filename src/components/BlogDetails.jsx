@@ -33,9 +33,9 @@ const BlogDetails = () => {
       <div className="mt-8 flex-1">
         <MDEditor.Markdown  source={post.content} className="tracking-wide" />
       </div>
-      <div className="flex justify-between items-center mt-6 p-4 text-sm border-accent-light">
-        <p className="">🤖 @{post.author.name}</p>
-        <p>⏳ {post.createdAt}</p>
+      <div className="flex justify-between items-center mt-6 p-2 text-sm border-accent bg-accent-light">
+        <p className="text-[10px]">🤖 @{post.author.name}</p>
+        <p className="text-[10px]">⏳ {post.createdAt}</p>
       </div>
     </div>
   );

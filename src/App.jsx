@@ -24,7 +24,7 @@ function App() {
       {/* Main Page Container */}
       <div className="h-screen px-[10%]  font-secondary pt-4">
         {/* Nav Container */}
-        <nav className="flex justify-between align-center border-bottom-accent pb-4">
+        <nav className="flex justify-between align-center border-bottom-accent pb-">
           <Link
             className="tracking-tighter font-extrabold text-accent text-lg md:text-3xl font-primary"
             to="/"

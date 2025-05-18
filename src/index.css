@@ -38,6 +38,9 @@
   .bg-accent {
     background-color: var(--color-accent);
   }
+  .bg-accent-light {
+    background-color: var(--color-accent-light);
+  }
   .font-primary {
     font-family: var(--font-primary);
   }
