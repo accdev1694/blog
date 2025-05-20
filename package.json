@@ -2,11 +2,10 @@
   "name": "blog",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://accdev1694.github.io/blog",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "rm -rf dist && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
