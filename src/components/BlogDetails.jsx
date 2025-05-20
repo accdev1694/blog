@@ -19,7 +19,7 @@ const BlogDetails = () => {
 
   if (error) {
     console.error("Error fetching posts:", error);
-    navigate("/blog/");
+    navigate("/");
     return null;
   }
 
@@ -27,7 +27,7 @@ const BlogDetails = () => {
 
   // Handle post not found
   if (!post) {
-    navigate("/blog/");
+    navigate("/");
     return null;
   }
 
