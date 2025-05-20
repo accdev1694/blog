@@ -1,15 +1,16 @@
 import Heading from "./Heading";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { usePromise } from "./usePromise";
 import MDEditor from "@uiw/react-md-editor";
 
+
 const BlogDetails = () => {
+  const navigate = useNavigate();
+  // Fetch posts using a custom hook
   const { posts, loading, error } = usePromise();
   const { id } = useParams();
 
-  // Debug logs
-  console.log("Current ID:", id);
-  console.log("Posts array:", posts);
+ 
 
   // Handle loading and error states with proper returns
   if (loading) {
@@ -17,14 +18,17 @@ const BlogDetails = () => {
   }
 
   if (error) {
-    return <div className="text-center py-4 text-red-500">{error}</div>;
+    console.error("Error fetching posts:", error);
+    navigate("/blog/");
+    return null;
   }
 
   const post = posts.find((post) => post.id === id);
 
   // Handle post not found
   if (!post) {
-    return <div className="text-center py-4">Post Not Found</div>;
+    navigate("/blog/");
+    return null;
   }
 
   return (

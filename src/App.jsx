@@ -1,6 +1,13 @@
 import { useState } from "react";
 import "./index.css";
-import { Link, Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import {
+  Link,
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import { signOut } from "firebase/auth";
@@ -11,7 +18,7 @@ import BlogDetails from "./components/BlogDetails";
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   const currentLocation = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const logOut = () => {
     signOut(auth).then(() => {
       localStorage.clear();
@@ -70,6 +77,8 @@ function App() {
 
         <div className="pt-8 align-left md:mt-12 pb-8">
           <Routes>
+            <Route path="/" element={<Navigate to="/blog" replace />} />
+            <Route path="/blog" element={<Homepage isAuth={isAuth} />} />
             <Route path="/blog/" element={<Homepage isAuth={isAuth} />}></Route>
             <Route
               path="/blog/login"

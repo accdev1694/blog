@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import Heading from "./Heading";
-import { addDoc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
-import { collection } from "firebase/firestore";
 import { db, auth } from "../../firebase-config";
 import MDEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";

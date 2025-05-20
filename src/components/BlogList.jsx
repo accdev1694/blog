@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
-import { auth } from "../../firebase-config";
-import { db } from "../../firebase-config";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, db } from "../../firebase-config";
 import { deleteDoc, doc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+
 
 const BlogList = ({ posts, isAuth }) => {
   const navigate = useNavigate();

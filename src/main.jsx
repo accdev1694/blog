@@ -6,7 +6,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Router basename='/blog'>
+    <Router basename={import.meta.env.DEV ? '/' : '/blog'}>
       <App />
     </Router>    
   </StrictMode>

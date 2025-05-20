@@ -5,8 +5,10 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/blog", // Add this line - should match your repository name
-  build: {
-    outDir: "dist",
-  },
+  base: "/",
+   server: {
+    // open: true,
+    historyApiFallback: true
+  }
+  
 });
