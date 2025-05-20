@@ -83,11 +83,16 @@ npm run dev
 npm run build
 ```
 
-2. Deploy to GitHub Pages:
+2. Deploy to Firebase:
 
 ```bash
-npm run deploy
+firebase deploy
 ```
+
+3. Deployed Site: 
+
+https://my-blog-cfc41.web.app
+
 
 ## 🔒 Security
 
