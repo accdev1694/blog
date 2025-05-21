@@ -27,7 +27,7 @@ const BlogList = ({ posts, isAuth }) => {
           </h1>
           <h3 className="text-primary text-xs font-primary mt-2 flex-1">
             {post.description.length > 100
-              ? post.description.slice(0, 100) + "..."
+              ? post.description.slice(0, 150) + "..."
               : post.description}
           </h3>
 

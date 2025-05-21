@@ -32,12 +32,13 @@ function App() {
       {/* Main Page Container */}
       <div className="h-screen px-[10%]  font-secondary pt-4">
         {/* Nav Container */}
-        <nav className="flex justify-between align-center border-bottom-accent pb-">
+        <nav className="flex justify-between align-center border-bottom-accent pb-3">
           <Link
             className="tracking-tighter font-extrabold text-accent text-lg md:text-3xl font-primary"
             to="/"
           >
-            Accdev Blog
+            Accdev's{" "}
+            <span className="text-secondary bg-accent px-3 py-1">Blog</span>
           </Link>
           {/* Navigation Links */}
           <div className="flex justify-center items-center gap-2">
