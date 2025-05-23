@@ -17,12 +17,12 @@ const BlogList = ({ posts, isAuth }) => {
     <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
       {posts.map((post) => (
         <Link
-          className="h-60 md:h-52 flex flex-col text-left p-4 cursor-pointer opacity-80 hover:opacity-100 hover:rounded-lg transition duration-300 ease-in-out hover:bg-transparent  border-accent-light shadow-lg"
+          className="h-60 md:h-52 flex flex-col text-left p-4 cursor-pointer opacity-80 hover:opacity-100 hover:rounded-lg transition duration-300 ease-in-out hover:bg-transparent shadow-accent bg-blue-200/20"
           key={post.id}
           to={`/blog-details/${post.id}`}
         >
           {/* Post Title and Description */}
-          <h1 className="font-bold text-accent text-md font-primary">
+          <h1 className="font-bold text-md text-secondary font-primary">
             {post.title.toUpperCase()}
           </h1>
           <h3 className="text-primary text-xs font-primary mt-2 flex-1">
@@ -34,10 +34,10 @@ const BlogList = ({ posts, isAuth }) => {
           <div className="w-full flex justify-between ">
             <div className="">
               {/* Post Author and Date */}
-              <p className="w-full text-left text-[10px] mt-2">
+              <p className="w-full text-left text-secondary text-[10px] mt-2">
                 🤖 @{post.author.name}
               </p>
-              <p className="w-full text-left text-[10px] font-bold">
+              <p className="w-full text-left text-secondary text-[10px] font-bold">
                 ⏳ {post.createdAt}
               </p>
             </div>

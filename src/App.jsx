@@ -38,13 +38,13 @@ function App() {
             to="/"
           >
             Accdev's{" "}
-            <span className="text-secondary bg-accent px-3 py-1">Blog</span>
+            <span className="text-secondary bg-accent px-3 py-1">BLOG</span>
           </Link>
           {/* Navigation Links */}
           <div className="flex justify-center items-center gap-2">
             <Link
               to="/"
-              className="text-xs md:text-smpx-1 tracking-wide text-primary font-medium font-primary opacity-80 hover:opacity-100 duration-300 ease-in-out"
+              className="text-xs md:text-sm px-1 tracking-wide text-primary font-medium font-primary opacity-80 hover:opacity-100 duration-300 ease-in-out"
             >
               Home
             </Link>
@@ -66,7 +66,7 @@ function App() {
                   </Link>
                   <button
                     onClick={logOut}
-                    className="font-semibold text-center text-secondary text-xs md:text-sm  py-1 border border-transparent opacity-90 hover:opacity-100 transition  duration-300 ease-in-out btn-bg-accent  cursor-pointer w-16 md:w-26"
+                    className="font-semibold text-center text-secondary text-xs md:text-sm  py-1 opacity-90 hover:opacity-100 transition  duration-300 ease-in-out btn-bg-accent  cursor-pointer w-16 md:w-26"
                   >
                     Log Out
                   </button>
